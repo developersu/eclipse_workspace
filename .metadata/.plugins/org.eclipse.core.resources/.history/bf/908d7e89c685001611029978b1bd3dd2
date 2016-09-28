@@ -1,0 +1,20 @@
+import pycurl
+import re
+import array
+import string
+from io import BytesIO
+
+buf = BytesIO()
+c = pycurl.Curl()
+c.setopt(c.URL, 'http://ibash.org.ru/quote.php?id=1738')
+c.setopt(c.WRITEDATA, buf)
+c.perform()
+c.close()
+
+line = re.sub('<[^>]*>','',buf.getvalue().decode('cp1251')).split('\n')
+for i in range(0, len(line)):
+    if re.match('^\s*$|.*ibash.org.ru*|.*Почта|.*Дата\ добавления|.*\[\&nbsp;', line[i]) == None:
+        print(re.sub('^\s*','',line[i]))
+
+
+#print(len(line1))

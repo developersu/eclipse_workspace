@@ -1,0 +1,4 @@
+designer/newcontainer.layoutmanager=com.jgoodies.forms.layout.FormLayout
+designer/newform.superclass=javax.swing.JFrame
+eclipse.preferences.version=1
+lookandfeel=com.jgoodies.looks.plastic.PlasticXPLookAndFeel

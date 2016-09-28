@@ -1,0 +1,21 @@
+import pycurl
+import re
+import array
+import string
+from io import BytesIO
+
+buf = BytesIO()
+c = pycurl.Curl()
+c.setopt(c.URL, 'http://ibash.org.ru/quote.php?id=17395')
+c.setopt(c.WRITEDATA, buf)
+c.perform()
+c.close()
+
+line = re.sub('<[^>]*>','',buf.getvalue().decode('cp1251'))
+line1 = line.split('\n')
+for line1 in range(0, len(line1)):
+    print(type(line1))
+#    print(line1[14])
+
+
+#print(len(line1))
